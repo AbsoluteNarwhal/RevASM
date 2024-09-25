@@ -32,9 +32,9 @@ def get_meta(file):
 def get_type(file):
     _, ext = os.path.splitext(file)
     if ext == "":
-        print("    Unix executable file")
+        print("    Type: Unix executable file")
     else: 
-        print(f"    {ELF_EXTENSIONS[ext]} ({ext})")
+        print(f"    Type: {ELF_EXTENSIONS[ext]} ({ext})")
 
 def get_size(file):
     print(f"    Size: {format_file_size(os.path.getsize(file))}")

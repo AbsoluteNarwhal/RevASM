@@ -20,3 +20,9 @@ def select_elf_info(file, infotype):
         case "--endianness": elf_info.get_endian(file)
         case _: print(f"Error: File data '{infotype}' is not available for this file type.")
     print()
+
+def elf_dependencies(file):
+    pass
+
+def elf_exports(file):
+    pass
