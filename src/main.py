@@ -3,6 +3,15 @@ import os
 import help
 import vars
 import hexdump
+import info_common
+import elf
+
+"""
+Dual file extensions:
+
+No extension: Unix executable or text file
+.bin: Unix executable or generic binary
+"""
 
 def main():
     args = sys.argv
@@ -28,6 +37,13 @@ def main():
     if args[1] == "hexdump":
         with open(args[2], "rb") as file:
             hexdump.hex_format(file.read())
+        return
+    
+    if args[1] == "info":
+        if len(args) < 4: 
+            elf.select_elf_info(args[2], "")
+            return
+        elf.select_elf_info(args[2], args[-1])
         return
 
 main()
