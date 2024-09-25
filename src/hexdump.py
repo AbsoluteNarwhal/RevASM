@@ -1,5 +1,5 @@
-import os
 import colorama
+import vars
 
 LINE_LENGTH = 16
 NUM_ALIGNMENT = 8
@@ -9,6 +9,8 @@ def hex_format(contents):
     colorama.init()
     byte_pos = 0
     byte_buffer = ""
+    print(f"RevASM version {vars.VERSION} - 2024 Absolute Narwhal")
+    print()
     while byte_pos < len(contents):
         print("{:0{}d}".format((byte_pos//12), NUM_ALIGNMENT) + ": ", end="")
         for _ in range(min(LINE_LENGTH, len(contents) - byte_pos)):
@@ -18,7 +20,7 @@ def hex_format(contents):
         print(byte_buffer)
         byte_buffer = ""
 
-def format_byte(byte: int):
+def format_byte(byte):
     res = format(byte, "x").upper()
     if len(res) == 1:
         return f"0{res} "
