@@ -1,4 +1,5 @@
 import sys
+import os
 import help
 import vars
 import hexdump
@@ -11,6 +12,7 @@ def main():
     if args[1] == "--help" or args[1] == "-h":
         if len(args) == 2:
             help.select("")
+            return
         help.select(args[2])
         return
     if args[1] == "--version" or args[1] == "-v":
@@ -18,8 +20,14 @@ def main():
         return
     if len(args) < 3:
         print("Error: No file provided")
+        return
+    if not os.path.exists(args[2]):
+        print(f"Error: File '{args[2]}' does not exist")
+        return
 
     if args[1] == "hexdump":
-        hexdump.format(b"todo: make this fucking work.")
+        with open(args[2], "rb") as file:
+            hexdump.hex_format(file.read())
+        return
 
 main()
