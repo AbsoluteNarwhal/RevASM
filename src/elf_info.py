@@ -32,12 +32,12 @@ def get_all(file):
     info_common.get_mtime(file)
     print()
     print("Binary information:")
-    get_abi(file)
+    get_abi()
     get_os(file)
     get_iset(file)
     get_endian(file)
 
-def get_abi(file):
+def get_abi():
     print("    ABI format: Executable and Linkable Format (ELF)")
 
 def get_os(file):

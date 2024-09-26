@@ -14,7 +14,7 @@ def select_elf_info(file, infotype):
         case "--atime": info_common.get_atime(file)
         case "--ctime": info_common.get_ctime(file)
         case "--mtime": info_common.get_mtime(file)
-        case "--abi": elf_info.get_abi(file)
+        case "--abi": elf_info.get_abi()
         case "--os": elf_info.get_os(file)
         case "--iset": elf_info.get_iset(file)
         case "--endianness": elf_info.get_endian(file)
