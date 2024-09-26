@@ -50,9 +50,16 @@ def help_disassemble():
     print()
     print("Disassemble (command):")
     print("    revasm disassemble [file]")
+    print("    revasm disassemble [file] [flag(s)]")
     print()
     print("Description:")
-    print("    Translates ELF/PE x64 binaries into assembly for analysis, along with providing a full hex dump.")
+    print("    Translates ELF/PE x86/ARM64 binaries into assembly for analysis, along with providing a full hex dump.")
+    print("    By default, prints pseudo-assembly code. You can select another syntax type using a flag.")
+    print("    Example: $ revasm disassemble foo.exe --intel")
+    print()
+    print("Flags:")
+    print("    --pseudo : Use pseudo-assembly syntax (default)")
+    print("    --intel  : Use intel assembly syntax")
     print()
 
 def help_hexdump():
