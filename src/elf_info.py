@@ -52,4 +52,5 @@ def get_endian(file):
     with open(file, "rb") as nfile:
         content = nfile.read()
         if content[5] == 1: print("    Endianness: Little endian")
-        else: print("    Endianness: Big endian")
+        elif content[5] == 2: print("    Endianness: Big endian")
+        else: print(f"    Endianness: Unknown (Unsupported value '{content[5]}')")
