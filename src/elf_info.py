@@ -49,4 +49,7 @@ def get_iset(file):
     print("    Target instruction set: ")
 
 def get_endian(file):
-    print("    Endianness: ")
+    with open(file, "rb") as nfile:
+        content = nfile.read()
+        if content[5] == 1: print("    Endianness: Little endian")
+        else: print("    Endianness: Big endian")

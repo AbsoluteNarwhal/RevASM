@@ -58,7 +58,6 @@ def help_disassemble():
     print("    Example: $ revasm disassemble foo.exe --intel")
     print()
     print("Flags:")
-    print("    --pseudo : Use pseudo-assembly syntax (default)")
     print("    --intel  : Use intel assembly syntax")
     print()
 
