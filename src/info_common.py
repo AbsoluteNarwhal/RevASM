@@ -12,10 +12,46 @@ ELF_EXTENSIONS = {
     ".mod": "GRUB module"
 }
 
+PE_EXTENSIONS = {
+    ".exe": "Windows executable file",
+    ".dll": "Windows dynamic link library (Shared library)",
+    ".drv": "Windows driver",
+    ".sys": "Windows system file",
+    ".efi": "Firmware interface file"
+}
+
 TEXT_EXTENSIONS = {
     "$TXT_NOEXT": "Text file",
     ".txt": "Text file",
     ".md": "Markdown text file",
+    # Source files
+    ".s": "Source code file",
+    ".asm": "Assembly source file",
+    ".c": "C source file",
+    ".h": "C header source file",
+    ".cpp": "C++ source file",
+    ".hpp": "C++ header source file",
+    ".rs": "Rust source file",
+    ".go": "Go source file",
+    ".zig": "Zig source file",
+    ".java": "Java source file",
+    ".cs": "C# source file",
+    ".html": "HTML source file",
+    ".css": "CSS stylesheet",
+    ".js": "JavaScript source file",
+    ".ts": "TypeScript source file",
+    ".jsx": "ReactJS source file",
+    ".tsx": "ReactJS TypeScript source file",
+    ".py": "Python source file",
+    ".lua": "Lua source file",
+    ".nim": "Nim source file",
+    # Config files
+    ".json": "JavaScript object configuration file",
+    ".csv": "CSV configuration file",
+    ".xml": "XML markup file",
+    ".gitignore": "Git configuration file",
+    ".gitmodules": "Git configuration file",
+    ".cmake": "CMake configuration file",
 }
 
 def format_file_size(size_bytes):
