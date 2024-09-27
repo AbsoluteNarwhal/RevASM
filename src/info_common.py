@@ -12,6 +12,12 @@ ELF_EXTENSIONS = {
     ".mod": "GRUB module"
 }
 
+TEXT_EXTENSIONS = {
+    "$TXT_NOEXT": "Text file",
+    ".txt": "Text file",
+    ".md": "Markdown text file",
+}
+
 def format_file_size(size_bytes):
     if size_bytes < 1000:
         return f"{size_bytes}B"
@@ -21,18 +27,19 @@ def format_file_size(size_bytes):
         return f"{size_bytes/1000000}MB"
     return f"{size_bytes/1000000000}GB"
 
-def get_meta(file):
+def get_meta(file, ext):
     print("File metadata information:")
-    get_type(file)
+    get_type(ext)
     get_size(file)
     get_ctime(file)
     get_atime(file)
     get_mtime(file)
 
-def get_type(file):
-    _, ext = os.path.splitext(file)
-    if ext == "":
+def get_type(ext):
+    if ext == "$ELF_NOEXT":
         print("    Type: Unix executable file")
+    elif ext == "$TXT_NOEXT":
+        print("    Type: Text file")
     else: 
         print(f"    Type: {ELF_EXTENSIONS[ext]} ({ext})")
 

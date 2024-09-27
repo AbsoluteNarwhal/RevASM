@@ -59,12 +59,8 @@ def main():
     # Do file-specific commands
     match filetype:
         case "ELF":
-            if args[1] == "info":
-                if len(args) < 4: 
-                    elf.select_elf_info(args[2], "")
-                    return
-                elf.select_elf_info(args[2], args[-1])
-                return
+            elf.select_elf(args, ext)
+            return
         case "PE":
             print("PE not supported yet")
         case "TEXT":

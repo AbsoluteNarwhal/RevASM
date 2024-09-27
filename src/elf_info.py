@@ -29,9 +29,9 @@ ELF_ISET_TARGETS = {
     0x3E: "AMD x86-64",
 }
 
-def get_all(file):
+def get_all(file, ext):
     print("File information:")
-    info_common.get_type(file)
+    info_common.get_type(ext)
     info_common.get_size(file)
     info_common.get_ctime(file)
     info_common.get_atime(file)

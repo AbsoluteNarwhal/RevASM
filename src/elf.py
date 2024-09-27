@@ -2,14 +2,21 @@ import elf_info
 import vars
 import info_common
 
-def select_elf_info(file, infotype):
+def select_elf(args, ext):
+    if args[1] == "info":
+        if len(args) < 4: 
+            select_elf_info(args[2], "", ext)
+        else:
+            select_elf_info(args[2], args[-1], ext)
+
+def select_elf_info(file, infotype, ext):
     print(f"RevASM version {vars.VERSION} - 2024 Absolute Narwhal")
     print()
     if not infotype in ["", "--meta"]: print("File: " + file)
     match infotype:
-        case "": elf_info.get_all(file)
-        case "--meta": info_common.get_meta(file)
-        case "--type": info_common.get_type(file)
+        case "": elf_info.get_all(file, ext)
+        case "--meta": info_common.get_meta(file, ext)
+        case "--type": info_common.get_type(ext)
         case "--size": info_common.get_size(file)
         case "--atime": info_common.get_atime(file)
         case "--ctime": info_common.get_ctime(file)
