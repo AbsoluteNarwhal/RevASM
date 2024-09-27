@@ -56,7 +56,7 @@ def main():
             filetype = "TEXT"
             if ext == "": ext = "$TXT_NOEXT"
     
-    # Do file-specific commands
+    # Do file-specific selectors
     match filetype:
         case "ELF":
             elf.select_elf(args, ext)
