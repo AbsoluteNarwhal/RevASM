@@ -62,19 +62,6 @@ def main():
     
     filetype, ext = resolve_filetype(args[2])
     
-    # Resolve file type
-    _, ext = os.path.splitext(args[2])
-    with open(args[2], "rb") as file:
-        file_contents = file.read()
-        if file_contents[:4] == b"\x7FELF" and (ext in info_common.ELF_EXTENSIONS or ext == ""):
-            filetype = "ELF"
-            if ext == "": ext = "$ELF_NOEXT"
-        elif file_contents[:2] == b"MZ":
-            filetype = "PE"
-        else:
-            filetype = "TEXT"
-            if ext == "": ext = "$TXT_NOEXT"
-    
     # Do file-specific selectors
     match filetype:
         case "ELF":
