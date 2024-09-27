@@ -22,6 +22,13 @@ ELF_OS_TARGETS = {
     0x12: "Stratus Technologies OpenVOS"
 }
 
+ELF_ISET_TARGETS = {
+    0x03: "x86",
+    0x08: "MIPS",
+    0x28: "Arm 32-bit",
+    0x3E: "AMD x86-64",
+}
+
 def get_all(file):
     print("File information:")
     info_common.get_type(file)
@@ -45,7 +52,13 @@ def get_os(file):
         print("    Target system: " + ELF_OS_TARGETS[content[7]])
 
 def get_iset(file):
-    print("    Target instruction set: ")
+    with open(file, "rb") as nfile:
+        content = nfile.read()
+        data = content[18]
+        if data in ELF_ISET_TARGETS:
+            print("    Target instruction set: " + ELF_ISET_TARGETS[data])
+        else:
+            print(f"    Target instruction set: Unknown (Unsupported value '{data}')")
 
 def get_endian(file):
     with open(file, "rb") as nfile:
