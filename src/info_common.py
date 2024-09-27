@@ -40,8 +40,12 @@ def get_type(ext):
         print("    Type: Unix executable file")
     elif ext == "$TXT_NOEXT":
         print("    Type: Text file")
-    else: 
+    elif ext in ELF_EXTENSIONS: 
         print(f"    Type: {ELF_EXTENSIONS[ext]} ({ext})")
+    elif ext in TEXT_EXTENSIONS:
+        print(f"    Type: {TEXT_EXTENSIONS[ext]} ({ext})")
+    else:
+        print(f"    Type: Unknown file type ({ext})")
 
 def get_size(file):
     print(f"    Size: {format_file_size(os.path.getsize(file))}")
