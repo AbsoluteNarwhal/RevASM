@@ -22,7 +22,7 @@ def resolve_filetype(file):
         if file_contents[:4] == b"\x7FELF" and (ext in info_common.ELF_EXTENSIONS or ext == ""):
             filetype = "ELF"
             if ext == "": ext = "$ELF_NOEXT"
-        elif file_contents[:2] == b"MZ":
+        elif file_contents[:2] == b"MZ" and ext in info_common.PE_EXTENSIONS:
             filetype = "PE"
         else:
             filetype = "TEXT"
