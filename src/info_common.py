@@ -24,6 +24,7 @@ TEXT_EXTENSIONS = {
     "$TXT_NOEXT": "Text file",
     ".txt": "Text file",
     ".md": "Markdown text file",
+    ".bin": "Generic binary file",
     # Source files
     ".s": "Source code file",
     ".asm": "Assembly source file",

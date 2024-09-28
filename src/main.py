@@ -7,13 +7,6 @@ import info_common
 import elf
 import text
 
-"""
-Dual file extensions:
-
-No extension: Unix executable or text file
-.bin: Unix executable or generic binary
-"""
-
 def resolve_filetype(file):
     filetype = None
     _, ext = os.path.splitext(file)
